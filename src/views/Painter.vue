@@ -10,6 +10,7 @@
       </div>
     </div>
     <div class="painter">
+      <img src="../assets/download.svg" width="20" height="20" class="download-icon" @click="downloadFile"/>
       <vdr
         v-for="component in rawData2"
         @activated="onActivated"
@@ -30,7 +31,7 @@
         :grid="[8,8]">
         <SDetailPage
           :style="{width: component.width, height: component.height}"
-          v-if="component.type === 'PageHeader'"          
+          v-if="component.type === 'PageHeader'"
           :pageHeaderProps='component.pageHeaderProps'
         />
         <SProTable
@@ -88,6 +89,7 @@
 
 <script>
 import layout from '../utils/layout';
+import { files, exportZip } from '../utils/file';
 export default {
   data: function () {
     return {
@@ -393,21 +395,33 @@ export default {
         hasRow: false,
         hasColumn: false
       })
+    },
+    downloadFile() {
+      exportZip(files);
     }
-  }
+  },
 }
 </script>
 <style lang="scss" scoped>
 .page {
   display: flex;
   .painter {
+    position: relative;
     height: 720px;
     width: 1130px;
     border: 1px solid red;
     background-color: #808080;
     background: linear-gradient(-90deg, rgba(0, 0, 0, .1) 1px, transparent 1px), linear-gradient(rgba(0, 0, 0, .1) 1px, transparent 1px);
     background-size: 8px 8px, 8px 8px;
-    background-position: '8px 8px'
+    background-position: '8px 8px';
+
+    .download-icon {
+      position: absolute;
+      right: 8px;
+      top: 4px;
+      z-index: 999;
+      cursor: pointer;
+    }
   }
   .nav {
     background-color: white;

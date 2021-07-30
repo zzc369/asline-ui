@@ -3,7 +3,7 @@ import App from './App.vue'
 import router from './router'
 import store from './store'
 import ElementUI from 'element-ui';
-
+import 'element-ui/lib/theme-chalk/index.css';
 import SUP from 'ssc-ui-vue-pro';
 import 'ssc-ui-vue-pro/dist/ssc-ui-vue-pro.css';
 import SSCUI from 'ssc-ui-vue'

@@ -355,7 +355,7 @@ export default {
   }
 }
 </script>
-<style>
+<style scoped>
 .wms-table {
   width: 1125px;
   height: 704px;

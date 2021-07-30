@@ -1,13 +1,14 @@
 <template>
   <div class="page">
     <div class="nav">
-      <div
+      <!-- <div
         v-for="button in rawData1"
         :h="38"
         @click="addComponent"
         :key="button.type">
         <div class="component-label">{{button.type}}</div>
-      </div>
+      </div> -->
+      <SideBar :curIdentifyCompData="rawData1" :compData="rawData1"></SideBar>
     </div>
     <div class="painter">
       <vdr
@@ -88,7 +89,11 @@
 
 <script>
 import layout from '../utils/layout';
+import SideBar from './SideBar'
 export default {
+  components: {
+    SideBar,
+  },
   data: function () {
     return {
       basicY: 64,
@@ -401,9 +406,10 @@ export default {
 .page {
   display: flex;
   .painter {
-    height: 720px;
-    width: 1130px;
-    border: 1px solid red;
+    // height: 720px;
+    // width: 1130px;
+    flex: 1;
+    height: 100vh;
     background-color: #808080;
     background: linear-gradient(-90deg, rgba(0, 0, 0, .1) 1px, transparent 1px), linear-gradient(rgba(0, 0, 0, .1) 1px, transparent 1px);
     background-size: 8px 8px, 8px 8px;
@@ -411,13 +417,16 @@ export default {
   }
   .nav {
     background-color: white;
-    width: 200px;
+    width: 300px;
     .component-label {
       height: 38px;
       background-color: red;
       line-height: 38px;
       border: 1px solid black;
     }
+  }
+  .code-paint {
+    width: 300px;
   }
 }
 .ssc-pro-table {

@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Painter from '../views/Painter.vue'
+// import Painter from '../views/Painter.vue'
+import Layout from '../views/Layout'
 import UI from '../views/UI.vue'
 
 Vue.use(VueRouter)
@@ -9,7 +10,7 @@ const routes = [
   {
     path: '/',
     name: 'Home',
-    component: Painter
+    component: Layout
   },
   {
     path: '/ui',
